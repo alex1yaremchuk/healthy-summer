@@ -1,0 +1,12 @@
+{
+  "name": "healthy-summer-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/frontend",
+    "packages/user-service",
+    "packages/activity-service",
+    "packages/nutrition-service",
+    "packages/social-service"
+  ]
+}
