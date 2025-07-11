@@ -9,10 +9,34 @@ dotenv.config();
 
 const prisma = new PrismaClient();
 const app = express();
+
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://212.109.198.24:4173'
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
+  origin: (origin, callback) => {
+    console.log('🔍 Incoming request Origin:', origin);
+
+    if (!origin) {
+      console.log('⚠️ No origin provided (maybe curl or same-origin)');
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.includes(origin)) {
+      console.log('✅ Origin allowed:', origin);
+      return callback(null, true);
+    }
+
+    console.warn('❌ Origin BLOCKED by CORS:', origin);
+    return callback(new Error('Not allowed by CORS'));
+  },
   credentials: true
 }));
+
+
 app.use(express.json());
 
 // registration
