@@ -13,6 +13,8 @@
     "dev:user": "pnpm --filter ./packages/user-service dev",
     "dev:frontend": "pnpm --filter ./packages/frontend dev",
     "build:user": "pnpm --filter ./packages/user-service build",
-    "build:frontend": "pnpm --filter ./packages/frontend build"
+    "build:frontend": "pnpm --filter ./packages/frontend build",
+    "preview:frontend": "pnpm --filter ./packages/frontend preview",
+    "preview:user": "pnpm --filter ./packages/user-service preview"
   }
 }
