@@ -89,4 +89,5 @@ app.get('/api/users/me', auth, async (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
+console.log('✅ Server initialized');
 app.listen(port, () => console.log('user-service listening on ' + port));
