@@ -1,5 +1,5 @@
 {
-  "name": "healthy-summer-monorepo",
+  "name": "healthy-summer",
   "private": true,
   "version": "1.0.0",
   "workspaces": [
@@ -8,5 +8,11 @@
     "packages/activity-service",
     "packages/nutrition-service",
     "packages/social-service"
-  ]
+  ],
+  "scripts": {
+    "dev:user": "pnpm --filter ./packages/user-service dev",
+    "dev:frontend": "pnpm --filter ./packages/frontend dev",
+    "build:user": "pnpm --filter ./packages/user-service build",
+    "build:frontend": "pnpm --filter ./packages/frontend build"
+  }
 }
