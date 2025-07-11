@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box, Button, Input, VStack } from '@chakra-ui/react';
+import { API_BASES } from './config';
 
 export default function App() {
   const [email, setEmail] = useState('');
@@ -7,7 +8,7 @@ export default function App() {
   const [token, setToken] = useState<string | null>(null);
 
   async function login() {
-    const res = await fetch('/api/users/login', {
+    const res = await fetch(`${API_BASES.user}/api/users/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -22,7 +23,7 @@ export default function App() {
   }
 
   async function register() {
-    const res = await fetch('/api/users/register', {
+    const res = await fetch(`${API_BASES.user}/api/users/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })

@@ -3,11 +3,16 @@ import dotenv from 'dotenv';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { PrismaClient } from '@prisma/client';
+import cors from 'cors';
 
 dotenv.config();
 
 const prisma = new PrismaClient();
 const app = express();
+app.use(cors({
+  origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json());
 
 // registration

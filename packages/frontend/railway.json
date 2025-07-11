@@ -1,4 +1,4 @@
 {
   "build": "pnpm install && pnpm build",
-  "start": "pnpm start"
+  "start": "pnpm preview -- --port $PORT"
 }
